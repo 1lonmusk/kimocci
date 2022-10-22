@@ -1,0 +1,65 @@
+
+
+
+
+# def solution(x, y):
+#     Xnum = []
+#     Ynum = []
+#
+#     for i in range(10):
+#         Xnum.append(x.count(str(i)))
+#         Ynum.append(y.count(str(i)))
+#     mate = []
+#
+#     for j in range(10):
+#         if Xnum[j] > 0 and Ynum[j] > 0:
+#             mate += [str(j)] * min(Xnum[j], Ynum[j])
+#     mate.sort(reverse=True)
+#
+#     answer = ''.join(mate)
+#     if len(answer) == 0:
+#         return "-1"
+#     elif len(answer) == answer.count('0'):
+#         return '0'
+#     else:
+#         return answer
+#
+# X = '12321'
+# Y = '45132'
+# print(solution(X, Y))
+
+
+
+# def soluion(dots):
+#     x1,y1 = dots[0]
+#     x2 = 0
+#     y2 = 0
+#     for x,y in dots:
+#         if x != x1 and y != y1:
+#             x2 = x
+#             y2 = y
+#     garo = abs(x2 - x1)
+#     sero = abs(y2 - y1)
+#     return garo * sero
+#
+# dots = [[1,1], [2, 1], [2, 2], [1, 2]]
+# print(soluion(dots))
+
+
+
+def solution(lines):
+    answer = 0
+    nums = {}
+    for line in lines:
+        for i in range(min(line[0], line[1]), max(line[0],line[1])):
+            if i not in nums:
+                nums[str(i)] = 0
+            else:
+                nums[str(i)] += 1
+    for n in nums:
+        if nums[n] > 1:
+            answer += 1
+    return answer
+
+line = [[0, 5], [3, 9], [1, 10]]
+print(solution(lines))
