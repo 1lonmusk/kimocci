@@ -52,7 +52,7 @@ def solution(lines):
     nums = {}
     for line in lines:
         for i in range(min(line[0], line[1]), max(line[0],line[1])):
-            if i not in nums:
+            if str(i) not in nums:
                 nums[str(i)] = 0
             else:
                 nums[str(i)] += 1
@@ -61,5 +61,3 @@ def solution(lines):
             answer += 1
     return answer
 
-line = [[0, 5], [3, 9], [1, 10]]
-print(solution(lines))
